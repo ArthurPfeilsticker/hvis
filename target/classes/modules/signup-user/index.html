@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"
+/>
+<title>HVis - Cadastro de usuário</title>
+    <link rel="stylesheet" href="../../assets/styles/signup-user.css">
+
+</head>
+<body class="page">
+
+    <div class="container">
+    <div class="col-12 col-sm-12 col-md-4 col-lg-2 align-self-center back-box">
+        <img  src="../../assets/images/HVis.svg" class="logo" />
+    </div>
+
+    <div class="col-12" id="titleLeft">
+        <img src="../../assets/images/Title.svg" tabindex="1" alt="">
+    </div>
+
+    <h1 id="titulocad">Cadastro de usuário</h1>
+    
+    <form class="row g-3 " id="formCadastros" method="post">
+        <div class="col-md-6">
+            <label for="campoNome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="campoNome" name="campoNome" pattern=".{2,40}$" title="Mínimo 3 caracteres, máximo 20, somente letras. Ex.: John" autocomplete="off" placeholder="Digite seu nome completo" tabindex="2" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoEmail" class="form-label">Email</label>
+            <input type="email" name="campoEmail" class="form-control" id="campoEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Ex.: john@planejy.com" autocomplete="off" placeholder="Email" tabindex="3" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoCPF" class="form-label">CPF</label>
+            <input type="cpf" class="form-control" name="campoCPF" placeholder="Digite seu CPF" id="campoCPF"  title="xxx.xxx.xxx-xx" autocomplete="off" tabindex="4" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoUsername" class="form-label">Usuário</label>
+            <input type="text" class="form-control" id="campoUsername" pattern=".{2,16}" title="Mínimo 2 caracteres, máximo 15, somente letras. Ex.: CoolNickName" placeholder="username123"autocomplete="off" tabindex="5" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoSenha" class="form-label">Senha:</label>
+              <input type="password" class="form-control" id="campoSenha" name="campoSenha" pattern="[A-Za-z0-9]{8,}" title="Mínimo 8 caracteres, somente letras e números" placeholder="Senha" autocomplete="off" tabindex="6" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoConfirmaS" class="form-label">Confirma Senha:</label>
+            <div class="input-group">
+                <input type="password" class="form-control" id="campoConfirmaS" name="campoConfirmaS" title="Mínimo 8 caracteres, somente letras e números" placeholder="Confirme sua senha" autocomplete="off" tabindex="7" required>
+                <div class="row">
+                    <div class="eye-icon">
+                        <button class="fa-solid fa-eye" id="show-passwd"></button>
+                        <button class="fa-solid fa-eye-slash" id="hide-passwd"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoCidade" class="form-label">Cidade</label>
+            <input type="text" class="form-control" id="campoCidade" name="campoCidade" autocomplete="off" tabindex="8" required>
+            <div class="invalid-feedback">
+              Inválido.
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoEstado" class="form-label">Estado</label>
+            <input type="text" class="form-control" id="campoEstado" name="campoEstado" autocomplete="off" tabindex="9" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoTelefone" class="form-label">Telefone</label>
+            <input type="text" class="form-control" id="campoTelefone" name="campoTelefone" title="Apenas números" placeholder="Digite seu DDD e telefone" autocomplete="off" tabindex="10" required>
+        </div>
+
+        <div class="col-md-6">
+            <label for="campoDescricao" class="form-label">Descricao</label>
+            <input type="text" class="form-control" id="campoDescricao" tabindex="11" pattern=".{2,30}" autocomplete="off" required>
+        </div>
+        <br>
+        <button type="submit" id="btnIncluirCadastro" class="btn btn-secondary btn-submit" tabindex="12" >Salvar Cadastro</button>
+    </form> 
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+    <script src="../../assets/scripts/signup_user.js"></script>
+</body>
+</html>

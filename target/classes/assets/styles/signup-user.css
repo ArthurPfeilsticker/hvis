@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+h1 {
+    text-align: center;
+    color: white;
+    font-size: 60px;
+}
+
+#formCadastros {
+    color: white;
+    font-size: 35px;
+    margin-top: 10px;
+    margin-left: 45%;
+}
+
+.form-control{
+    width: 300px;
+    height: 50px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+}
+
+#titulocad{
+    color: white;
+    font-size: 60px;
+    margin-top: 10px;
+    margin-left: 45%;
+}
+
+#titleLeft{
+    position: absolute;
+width: 441px;
+height: 273px;
+left: 60px;
+top: 341px;
+
+}
+
+.page{
+    min-height: 100vh;
+    background: url('../../assets/images/Vector\ 1.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#tela {
+    background-color: black;
+    color: white;
+}
+
+#btnIncluirCadastro{    
+    padding: 20px;
+}
+
+.logo{
+    padding: 20px;
+    width: 150px;
+    filter: invert(1);
+}
+
+.eye-icon {
+    color: aliceblue;
+    size: 5px;
+    width: 3px;
+}
+
+.eye-icon button {
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: white;
+}
+
+.eye-icon button:hover {
+    color: rgba(46, 222, 253, 0.964);
+}
