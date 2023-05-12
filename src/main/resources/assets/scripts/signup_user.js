@@ -58,7 +58,7 @@ form_element.addEventListener('submit', e => {
 
 btn_submit.onclick = () => {
     if(user_passwd.value === 'senha123'){
-        alert('ERRO: esta senha já está sendo usada por `Pedrinho123`');
+        alert('ERRO: CRIA UMA SENHA DECENTE SEU JUMENTO');
     }else{
         let user = {
             nome: user_firstname.value.trim(),

@@ -48,7 +48,11 @@ async function searchProducts(query) {
   return products;
 }
 
-async function searchProducts_fields() {
+window.addEventListener("load", (event) => {
+  loadDatabase();
+});
+
+/*async function searchProducts_fields() {
   let locality = $("#locality").val();
   let productQuery = $("#product-field").val();
 
@@ -86,7 +90,7 @@ async function searchProducts_fields() {
       send_information(products[id]);
     });
   }
-}
+}*/
 
 async function send_information(product) {
   let productFormated = { tipo: "produto", data: product };
@@ -94,29 +98,39 @@ async function send_information(product) {
   localStorage.setItem("productToSend", JSON.stringify(productFormated));
 }
 
-async function loadDatabase(type) {
-  $('.products-results').empty();
-  let database = await $.getJSON(`../../assets/database/${type}.json`, function (json) {
-    return json;
-  });
+async function loadDatabase() {
+  let database = [];
+  let xhr = new XMLHttpRequest();
+    xhr.open('GET', `http://localhost:4568/produto`, true);
+    xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.setRequestHeader("Authorization", "XX");
 
-  let products = database['results'];
-  for (let i = 0; i < products.length; i++) {
-    let product = products[i];
+    xhr.onload = () => {
+        let response = JSON.parse(xhr.responseText);
+        if(response['products'].length >= 1){
+          database = response['products'];
+        }
+        $('.products-results').empty();
+
+  console.log(database.length);
+
+  for (let i = 0; i < database.length; i++) {
+    let product = database[i];
     let productCard = `
     <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
       <div class="card_product d-flex">
         <div class="imgBx">
-          <img src="${product.thumbnail}">
+          <img src="${product.imagem}">
         </div>
         <div class="content d-flex">
           <div class="details">
-            <h2>${product.title}<br><span>${product.source}</span></h2>
+            <h2>${product.nome}<br></h2>
             <div class="data d-flex">
-              <h3>${product.price}<br><span>Preço</span></h3>
+              <h3>${product.preco}<br><span>Preço</span></h3>
             </div>
             <div class="actionBtn d-flex">
-              <a type="button" class="btn btn-primary" target="_blank" href="${product.link}" onclick="send_information()" prodId="${i}" id="prodButton${i}">Comprar!</a>
+              <a type="button" class="btn btn-primary" target="_blank" href="${product.descricao}" onclick="send_information()" prodId="${i}" id="prodButton${i}">Comprar!</a>
             </div>
           </div>
         </div>
@@ -128,4 +142,13 @@ async function loadDatabase(type) {
       send_information(products[id]);
     });
   }
+    }
+
+    xhr.onerror = () => {
+        alert('erro ao criar produto ;-;');
+    }
+
+    xhr.send();
+
+  
 }
