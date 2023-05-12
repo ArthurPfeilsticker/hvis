@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> CRUD Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../assets/styles/crud.css">
+</head>
+
+<body onload="init()">
+
+    <div class="col-12 col-sm-12 col-md-4 col-lg-2 align-self-center">
+        <a href="../../index.html"> <img  src="../../assets/images/HVis.svg" class="logo" /></a>
+    </div>
+    
+    <h1>CRUD</h1>
+
+    <div class="container">
+        <div class="row">
+            <div id="msg" class="col-sm-10 offset-sm-1 ">
+                <!--<div class="alert alert-warning">Contato não encontrado.</div>-->
+            </div>
+        </div>
+
+        <form id="form-contato">
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputId">Id</label>
+                    <input type="text" class="form-control" id="inputId" placeholder="ID" disabled>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputNome">Nome (*)</label>
+                    <input type="text" class="form-control" id="inputNome" required placeholder="Informe o seu nome completo"> 
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputTelefone">Telefone (*)</label>
+                    <input type="text" class="form-control" id="inputTelefone" required placeholder="Telefone">
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputUsername">Nome de Usuário (*)</label>
+                    <input type="username" class="form-control" id="inputUsername" required placeholder="Informe o nome de usuário">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <label for="inputCidade">Cidade (*)</label>
+                    <input type="text" class="form-control" id="inputCidade" placeholder="Informe a sua cidade" >
+                </div>
+                    <div class="col-sm-6">
+                        <label for="inputEstado">Estado</label>
+                        <input type="text" class="form-control" id="inputEstado" placeholder="Informe o estado" >
+                    </div>
+                <div class="col-sm-6">
+                    <label for="inputTipo">Função (*)</label>
+                    <select type="text" class="form-control" id="inputTipo" required placeholder="Médico, paciente ou cuidador">
+                        <label for="form-select" class="form-label">Selecione sua função:</label>
+                            <option selected>Selecione </option>
+                            <option value="Médico">Médico</option>
+                            <option value="Cuidador">Cuidador</option>
+                            <option value="Paciente">Paciente</option>
+                    </select>
+                </div>
+                <div class="col-sm-6">
+                    <label for="inputCPF">CPF (*)</label>
+                    <input type="text" class="form-control" id="inputCPF" placeholder="Informe o CPF" >
+                </div>
+            </div>
+            <div class="form-group row">    
+                <div class="col-sm-12">
+                    <label for="inputDescricao">Descrição</label>
+                    <input type="text" class="form-control" id="inputDescricao" required placeholder="Descrição mais detalhada">
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <small>(*) Campos obrigatórios</small>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-12">
+                    <input type="button" class="btn btn-success" id="btnInsert" value="Inserir">
+                    <input type="button" class="btn btn-warning" id="btnUpdate" value="Alterar">
+                    <input type="button" class="btn btn-danger" id="btnDelete" value="Excluir">
+                    <input type="button" class="btn btn-secondary" id="btnClear" value="Limpar Form">
+                    <a href="lista_contatos.html"><input type="button" class="btn btn-warning" id="btnClear" value="Pesquisar Contatos"></a>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <table id="grid-contatos" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Telefone</th>
+                            <th scope="col">Username</th>
+                            <th scope="col">Cidade</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Função</th>
+                            <th scope="col">CPF</th>
+                            <th scope="col">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-contatos">
+                        <tr>
+                            <td scope="row">1</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="../../assets/scripts/crud.js"></script>
+    
+</body>
+
+</html>

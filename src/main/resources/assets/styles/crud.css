@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+body {
+    background-color: rgb(33, 33, 33) !important;
+}
+
+h1 {
+    color: white;
+}
+.label {
+    font-weight: bolder;
+}
+::placeholder {
+    color: black !important;
+    opacity: 3;
+}
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:  black !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:  white !important;
+    opacity:  3;
+ }
+ h1 {
+     text-align: center;
+ }
+ #msg {
+     height: 60px;
+ }
+ #grid-contatos tbody {
+     cursor: pointer;
+ }
+
+.logo{
+    width: 150px;
+    filter: invert(1);
+    padding: 20px;
+}
+
+#form-contato{
+    font-size: 22px;
+    color:white;
+}
+
+#grid-contatos{
+    color:white;
+}

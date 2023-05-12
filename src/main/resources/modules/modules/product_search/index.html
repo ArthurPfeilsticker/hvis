@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="../../assets/styles/product_search.css" />
+    <title>HVis - Produtos</title>
+  </head>
+  <body>
+    <div class="page">
+      <header>
+        <div class="container header">
+          <div class="row">
+            <div class="col-12 header_area">
+              <div class="row justify-content-between">
+                <div
+                  class="col-12 col-sm-12 col-md-4 col-lg-2 align-self-center"
+                >
+                <a href="../../modules/home-page/index.html"> <img  src="../../assets/images/HVis.svg" class="logo" /></a>
+                </div>
+                <div
+                  class="col-12 col-sm-12 col-md-6 col-lg-9 align-self-center"
+                >
+                  <div class="row justify-content-center">
+                    <div class="col-12 col-sm-12 col-md-8 col-lg-12">
+                      <nav
+                        class="nav nav-pills flex-column flex-sm-row justify-content-center"
+                      >
+                        <a
+                          class="flex-sm-fill text-sm-center nav-link active"
+                          href="../medicos/index.html"
+                          >Cuidadores</a
+                        >
+                        <a
+                          class="flex-sm-fill text-sm-center nav-link active"
+                          href="../medicos/index.html"
+                          >Médicos</a
+                        >
+                        <a
+                          class="flex-sm-fill text-sm-center nav-link active"
+                          href="../product_search/index.html"
+                          >Produtos</a
+                        >
+                        <a
+                          class="flex-sm-fill text-sm-center nav-link active"
+                          href="../login/index.html"
+                          >Entrar</a
+                        >
+                        <a
+                          class="flex-sm-fill text-sm-center nav-link active"
+                          href="../signup-user/index.html"
+                          >Criar conta</a
+                        >
+                        <a
+                          class="flex-sm-fill text-sm-center nav-link active"
+                          href="../signup-product/index.html"
+                          >Criar produto</a
+                        >
+                      </nav>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- END ROW -->
+        </div>
+      </header>
+      <main>
+        <div class="container main">
+          <div class="row justify-content-between search align-items-center">
+            <div class="col-12 text-center">
+              <h5>Pesquisa de Recursos</h5>
+              <p>recomendações de utilitários</p>
+            </div>
+          </div>
+          <div class="row mini-spacer"></div>
+          <div class="row justify-content-around">
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
+              <a class="card_type d-flex" href="#" onclick="loadDatabase('colirio')">
+                <div class="imgBx">
+                  <img src="../../assets/images/colirio-moura-brasil-0-15mg-0-30mg-ml-20-ml-0b8.jpg" />
+                </div>
+                <div class="content d-flex">
+                  <div class="details">
+                    <h2>Colírio<br /><span>Saúde</span></h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
+              <a class="card_type d-flex" href="#" onclick="loadDatabase('olho-de-vidro')">
+                <div class="imgBx">
+                  <img src="../../assets/images/olho de vidro.png" />
+                </div>
+                <div class="content d-flex">
+                  <div class="details">
+                    <h2>Olho de vidro<br /><span>Saúde</span></h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
+              <a class="card_type d-flex" href="#" onclick="loadDatabase('soro_fisiologico')">
+                <div class="imgBx">
+                  <img src="../../assets/images/2014304515_1.webp" />
+                </div>
+                <div class="content d-flex">
+                  <div class="details">
+                    <h2>Soro fisiológico<br /><span>Saúde</span></h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
+              <a class="card_type d-flex" href="#" onclick="loadDatabase('teclado_braille')">
+                <div class="imgBx">
+                  <img src="../../assets/images/D_NQ_NP_760393-MLB31813928239_082019-O.jpg" />
+                </div>
+                <div class="content d-flex">
+                  <div class="details">
+                    <h2>Teclado Braille<br /><span>Tecnologia</span></h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
+              <a class="card_type d-flex" href="#" onclick="loadDatabase('bengala')">
+                <div class="imgBx">
+                  <img src="../../assets/images/6435editada1_1.jpg" />
+                </div>
+                <div class="content d-flex">
+                  <div class="details">
+                    <h2>Bengala<br /><span>Locomoção</span></h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
+              <a class="card_type d-flex" href="#" onclick="loadDatabase('kitSocorros')">
+                <div class="imgBx">
+                  <img src="../../assets/images/2934cd12913e7e45871b9b56836e5a32.jpeg" />
+                </div>
+                <div class="content d-flex">
+                  <div class="details">
+                    <h2>Kit de Primeiro Socorros<br /><span>Saúde</span></h2>
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div class="row justify-content-between products-results"></div>
+        </div>
+      </main>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+      integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="../../assets/scripts/product_search.js"></script>
+    <script src="../../assets/scripts/database.json"></script>
+  </body>
+</html>
