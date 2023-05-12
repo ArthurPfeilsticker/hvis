@@ -102,11 +102,11 @@ public class ProdutoDAO extends DAO {
 		boolean status = false;
 		try {  
 			String sql = "UPDATE produto SET descricao = '" + produto.getDescricao() + "', "
-					   + "preco = " + produto.getPreco() + ", " 
-					   + "quantidade = " + produto.getQuantidade() + ", "
-					   + "nome = '" + produto.getNome() + "', "
-					   + "imagem = '" + produto.getImagem() + "', " 
-					   + "WHERE id = " + produto.getId();
+					+ "preco = " + produto.getPreco() + ", " 
+					+ "quantidade = " + produto.getQuantidade() + ", "
+					+ "nome = '" + produto.getNome() + "', "
+					+ "imagem = '" + produto.getImagem() + "', " 
+					+ "WHERE id = " + produto.getId();
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();
 			st.close();

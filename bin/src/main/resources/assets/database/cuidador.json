@@ -1,0 +1,95 @@
+{
+    "results": [
+        {
+            "id": 1,
+		    "nome": "Fábio Guilherme Moreira",
+            "username": "fabio_moreira@powerblade.com.br",
+            "telefone":"(91) 98655-8142",
+            "cidade": "Ananindeua",
+            "estado": "Cidade Nova",
+		    "cpf": "771.292.255-13",
+            "descricao": "Especializado em idosos",
+            "foto": "../../assets/images/cuid1.jpg"
+        },
+        {
+            "id": 2,
+            "nome": "Silvana Isabela",
+            "username": "silvana_isabela@granvale.com.br",
+            "telefone": "(68) 99670-0405",
+            "cidade": "Rio Branco",
+            "estado": "Wanderley Dantas",
+            "cpf" : "021.429.513-92",
+            "descricao": "Para idosos com deficiência",
+            "foto": "../../assets/images/cuid2.jpg"
+        },
+        {
+            "id": 3,
+            "nome": "Márcio Anderson João Ribeiro",
+            "username": "marcio-ribeiro71@sprintrental.com.br",
+            "telefone": "(86) 98570-5795",
+            "cidade": "Teresina",
+            "estado": "Esplanada",
+            "cpf" : "098.017.273-43",
+            "descricao": "Especializado em Cegos",
+            "foto": "../../assets/images/cuid3.jpg"
+        },
+        {
+            "id": 4,
+            "nome": "Jaqueline Raimunda Alana Duarte",
+            "username": "jaqueline_raimunda_duarte@yazigi.com",
+            "telefone": "(84) 98234-5800",
+            "cidade": "Parnamirim",
+            "estado": "Parque das Nações",
+            "cpf" : "316.778.130-08",
+            "descricao": "Atende todas as idades",
+            "foto": "../../assets/images/cuid4.jpg"
+        },
+        {
+            "id": 5,
+            "nome": "Marli Lara Alana",
+            "username": "marli-8@yesenia.net",
+            "telefone": "1-231-115-4323",
+            "cidade": "Belo Horizonte",
+            "estado": "Buritis",
+            "cpf" : "028.327.453-46",
+            "descricao": "Especializada em crianças",
+            "foto": "../../assets/images/cuid5.jpg"
+        },
+        {
+            "id": 6,
+            "nome": "Isabel Carolina",
+            "username": "isabel-fogaca74@yesenia.net",
+            "telefone": "1-423-123-543",
+            "cidade": "Salvador",
+            "estado": "Mussurunga I",
+            "cpf" : "429.473.503-16",
+            "descricao": "Atende jovens",
+            "foto": "../../assets/images/cuid6.jpg"
+        },
+        {
+            "id": 7,
+            "nome": "Felipe Marcelo Almeida",
+            "username": "felipe_marcelo@yesenia.net",
+            "telefone": "1-312-443-1112",
+            "cidade": "Belo Horizonte",
+            "estado": "Eldorado",
+            "cpf" : "940.447.041-47",
+            "descricao": "Especializado em todas as idades",
+            "foto": "../../assets/images/cuid7.jpg"
+        },
+        {
+            "id": 8,
+            "nome": "Augusto Benício",
+            "username": "augusto-farias77@april.biz",
+            "telefone": "(68) 98683-0112",
+            "cidade": "Belo Horizonte",
+            "estado": "Dom Cabral",
+            "cpf": "693.219.801-05",
+            "descricao": "Cuidador",
+            "foto": "../../assets/images/cuid8.jpg"
+        }
+        
+    ]
+}
+
+

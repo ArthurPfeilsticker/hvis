@@ -1,0 +1,74 @@
+/**/
+/* Background */
+body {
+    background-color: rgb(33, 33, 33) !important;
+}
+
+/* Back */
+.back-box {
+    display: flex;
+    align-items: center;
+    filter: invert(1);
+    padding: 30px;
+}
+
+.back-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Title */
+h1 {
+    color: white;
+    font-size: 500%;
+    text-align: center;
+}
+
+.form-register {
+display: flex;
+flex-wrap: wrap;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 20px;
+}
+ 
+label {
+    color: white;
+    margin-bottom: 5px;
+}
+  
+input, textarea {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+input:focus {   
+    outline: none; /* Remove a borda padrão */
+    box-shadow: 0 0 5px 5px #0741ff; /* Adiciona uma sombra ao redor do campo */
+}
+
+form input {
+    margin-bottom: 20px;
+}
+
+.eye-icon {
+    position: absolute;
+    top: 30%;
+    right: 18%;
+    z-index: 999;
+}
+
+.eye-icon button {
+    display: block;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: rgb(252, 252, 252);
+}
+
+.eye-icon button:hover {
+    color: rgba(34, 0, 255, 0.6);
+}

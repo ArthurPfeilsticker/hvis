@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous" />
+    <title>HVis - Cadastro de produto</title>
+    <link rel="stylesheet" href="../../assets/styles/signup-user.css">
+
+</head>
+<body class="page">
+    
+    <div class="container">
+        <div class="col-12 col-sm-12 col-md-4 col-lg-2 align-self-center">
+            <a href="../../modules/product_search/index.html"> <img  src="../../assets/images/HVis.svg" class="logo" /></a>
+        </div>
+
+        <div class="col-12" id="titleLeft">
+            <img src="../../assets/images/Title.svg" alt="">
+        </div>
+
+        <h1 id="titulocad">Cadastro de produto</h1>
+        
+        <form class="row g-3 " id="formCadastros">
+            <div class="col-md-6">
+                <label for="campoNProduto" class="form-label">Nome do produto</label>
+                <input type="text" class="form-control" id="campoNProduto" name="campoNProduto" pattern=".{2,40}$" title="Ex: bengala..." placeholder="Digite o nome do produto">
+            </div>
+
+            <div class="col-md-6">
+                <label for="campoDescricao" class="form-label">Link do produto</label>
+                <input type="text" class="form-control" id="campoDescricao" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="campoPreco" class="form-label">Preço</label>
+                <input type="text" class="form-control" id="campoPreco" name="campoPreco" placeholder="R$" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="campoQuantidade" class="form-label">Quantidade:</label>
+                <input type="text" class="form-control" id="campoQuantidade" name="quantidade" required>
+            </div>
+
+            <div class="col-md-6">
+                <label for="campoImagem" class="form-label">Imagem do Produto</label>
+                <input type="text" class="form-control" id="campoImagem" name="campoImagem" placeholder="Digite o LINK com a imagem">
+            </div>
+
+            <br>
+
+            <button type="button" id="btnIncluirCadastro" class="btn btn-secondary btn-submit" >Salvar Cadastro</button>   
+
+        </form> 
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz"
+    crossorigin="anonymous"></script>
+    <script src="../../assets/scripts/signup_product.js"></script>
+</body>
+</html>

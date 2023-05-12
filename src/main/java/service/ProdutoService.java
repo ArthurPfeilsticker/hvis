@@ -110,7 +110,7 @@ public class ProdutoService {
 					productString += "\"nome\": \"" + produto.getNome() + "\",";
 					productString += "\"preco\": " + produto.getPreco() + ",";
 					productString += "\"quantidade\": " + produto.getQuantidade() + ",";
-					productString += "\"descricao\": \"" + produto.getDescricao() + "\"";
+					productString += "\"descricao\": \"" + produto.getDescricao() + "\",";
 					productString += "\"imagem\": \"" + produto.getImagem() + "\"";
 					productString += "},";
 				}
@@ -193,6 +193,12 @@ public class ProdutoService {
     		imagem += cursor.charAt(k);
 			k++;
     	}
+    	
+    	System.out.println(name);
+    	System.out.println(price);
+    	System.out.println(quantity);
+    	System.out.println(descricao);
+    	System.out.println(imagem);
     	
     	Produto produto = new Produto(-1, name, Float.parseFloat(price), Integer.parseInt(quantity), descricao, imagem);
     	

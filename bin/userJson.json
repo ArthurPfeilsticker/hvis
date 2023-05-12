@@ -1,0 +1,6 @@
+{
+	"message": %MESSAGE%,
+	"users": [
+		%USERINFO%
+	]
+}

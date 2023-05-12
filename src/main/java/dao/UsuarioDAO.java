@@ -24,8 +24,10 @@ public class UsuarioDAO extends DAO{
 		boolean status = false;
 		try {
 			String sql = "INSERT INTO usuario (nome, username, password, cpf, telefone, email, cidade, estado, descricao) "
-		               + "VALUES ('" + usuario.getNome() + "', '"
-		               + usuario.getUsername() + "', '" + usuario.getPassword() + "', " + usuario.getCPF() + ", " + usuario.getTelefone() + ", '" + usuario.getEmail() + "', '" + usuario.getCidade() + "', '" + usuario.getEstado() + "', '" + usuario.getDescricao() + "');";
+				+ "VALUES ('" + usuario.getNome() + "', '"
+				+ usuario.getUsername() + "', '" + usuario.getPassword() + "', " + usuario.getCPF()
+				+ ", " + usuario.getTelefone() + ", '" + usuario.getEmail() + "', '" + usuario.getCidade()
+				+ "', '" + usuario.getEstado() + "', '" + usuario.getDescricao() + "');";
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();
 			st.close();
@@ -57,14 +59,14 @@ public class UsuarioDAO extends DAO{
 		boolean status = false;
 		try {  
 			String sql = "UPDATE usuario SET nome = '" + usuario.getNome() + "', "
-					   + "username = " + usuario.getUsername() + ", " 
-					   + "cpf = " + usuario.getCPF() + ","
-					   + "telefone = " + usuario.getTelefone() + ", "
-					   + "email = " + usuario.getEmail() + ", "
-					   + "descricao = " + usuario.getDescricao() + ", "
-					   + "cidade = " + usuario.getCidade() + ", "
-					   + "estado = " + usuario.getEstado()
-					   + " WHERE id = " + usuario.getId();
+				+ "username = " + usuario.getUsername() + ", " 
+				+ "cpf = " + usuario.getCPF() + ","
+				+ "telefone = " + usuario.getTelefone() + ", "
+				+ "email = " + usuario.getEmail() + ", "
+				+ "descricao = " + usuario.getDescricao() + ", "
+				+ "cidade = " + usuario.getCidade() + ", "
+				+ "estado = " + usuario.getEstado()
+				+ " WHERE id = " + usuario.getId();
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();
 			st.close();
