@@ -364,7 +364,7 @@ public class ProdutoService {
     	}
     	cursor = body.split("\"idade\":")[1];
     	k = 0;
-    	while(cursor.charAt(k) != ',') {
+    	while(cursor.charAt(k) != '}') {
     		idade += cursor.charAt(k);
 			k++;
     	}

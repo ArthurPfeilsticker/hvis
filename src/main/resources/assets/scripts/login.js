@@ -50,7 +50,7 @@ const postUser = (username, password) => {
                     descricao: xhrResponse.descricao,
                     role: xhrResponse.role,
                     sexo: xhrResponse.sexo,
-                    idade: xhrResponse.idade,
+                    idade: parseInt(xhrResponse.idade),
 
                 }
 

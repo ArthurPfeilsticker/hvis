@@ -1,5 +1,8 @@
-window.addEventListener("load", (event) => {
+const mymodal = new bootstrap.Modal("#si_recomendation");
+
+window.addEventListener("DOMContentLoaded", (event) => {
   loadDatabase();
+  loadSI();
   if(localStorage.getItem("user") != null){
     $("#btn_Entrar").html("Logout");
     $("#btn_Entrar").on( "click", function() {
@@ -18,6 +21,59 @@ window.addEventListener("load", (event) => {
     } );
   }
 });
+
+function fromLocalStorage(){
+  return JSON.parse(localStorage.getItem("user"));
+}
+
+let catRecomendada;
+
+function loadCategory(userInfo){
+  let xhr = new XMLHttpRequest();
+    xhr.open('POST', `http://localhost:4568/produto-recomendado`, true);
+    xhr.withCredentials = true;
+    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+    xhr.setRequestHeader("Authorization", "XX");
+
+    xhr.onload = () => {
+        console.log(xhr.responseText);
+        catRecomendada = JSON.parse(xhr.responseText)["resultado"];
+        let prenome = $("#nome_recommendation").html();
+        prenome = prenome.replace("NOME", userInfo.nome);
+        $("#nome_recommendation").html(prenome);
+        let pretexto = $("#text_recommendation").html();
+        pretexto = pretexto.replace("CIDADE", userInfo.cidade);
+        pretexto = pretexto.replace("IDADE", userInfo.idade);
+        if(userInfo.sexo == 'M'){
+          userInfo.sexo = "Masculino";
+        }else if(userInfo.sexo == 'F'){
+          userInfo.sexo = "Feminino";
+        }
+        else{
+          userInfo.sexo = "Outro";
+        }
+        pretexto = pretexto.replace("SEXO", userInfo.sexo);
+        $("#text_recommendation").html(pretexto);
+        mymodal.show();
+    }
+
+    xhr.onerror = () => {
+        alert('Sem produtos cadastrados dessa categoria');
+    }
+
+    xhr.send(JSON.stringify(userInfo));
+}
+
+function loadSI(){
+  let userInfo = fromLocalStorage();
+  console.log(JSON.stringify(userInfo));
+  loadCategory(userInfo);
+}
+
+function recommend(){
+  loadDatabase(catRecomendada);
+  mymodal.hide();
+}
 
 async function send_information(product) {
   let productFormated = { tipo: "produto", data: product };
@@ -57,7 +113,7 @@ async function loadDatabase(category) {
           <div class="details">
             <h2>${product.nome}<br></h2>
             <div class="data d-flex">
-              <h3>${product.preco}<br><span>Preço</span></h3>
+              <h3><span>Preço</span> R$${product.preco}</h3>
             </div>
             <div class="actionBtn d-flex">
               <a type="button" class="btn btn-primary" target="_blank" href="${product.descricao}" onclick="send_information()" prodId="${i}" id="prodButton${i}">Comprar!</a>

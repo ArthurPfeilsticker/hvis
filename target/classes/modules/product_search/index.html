@@ -25,8 +25,6 @@
                 <div class="row justify-content-center">
                   <div class="col-12 col-sm-12 col-md-8 col-lg-12">
                     <nav class="nav nav-pills flex-column flex-sm-row justify-content-center">
-                      <!--<a class="flex-sm-fill text-sm-center nav-link active" href="../medicos/index.html">
-                        Cuidadores</a>-->
                       <a class="flex-sm-fill text-sm-center nav-link active" href="../medicos/index.html"> Profissionais</a>
                       <a class="flex-sm-fill text-sm-center nav-link active" href="../product_search/index.html">Produtos</a>
                       <a class="flex-sm-fill text-sm-center nav-link active" href="#" id="btn_Entrar">Entrar</a>
@@ -42,6 +40,25 @@
       </div>
     </header>
     <main>
+      <div class="modal fade" id="si_recomendation" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="nome_recommendation">Olá NOME,</h5>
+              <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+                <!-- <span aria-hidden="true">&times;</span> -->
+              </button>
+            </div>
+            <div class="modal-body" id="text_recommendation">
+              Deseja aceitar as recomendações do sistema inteligente que recomenda os produtos mais vendidos em CIDADE, para IDADE anos e gênero SEXO?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="mymodal.hide()">Não</button>
+              <button type="button" class="btn btn-primary" onclick="recommend()">Usar recomendação</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="container main">
         <div class="row justify-content-between search align-items-center">
           <div class="col-12 text-center">

@@ -113,7 +113,7 @@ public class UsuarioService {
 				userString += "\"estado\": \"" + usuario.getEstado() + "\",";
 				userString += "\"role\": \"" + usuario.getRole() + "\",";
 				userString += "\"sexo\": \"" + usuario.getSexo() + "\",";
-				userString += "\"idade\": \"" + usuario.getIdade() + "\"";
+				userString += "\"idade\": " + usuario.getIdade();
 				userString += "}";
 				break;
 			case INSERT_USER:
