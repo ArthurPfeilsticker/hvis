@@ -2,9 +2,9 @@ package service;
 
 import java.util.Scanner;
 import java.util.Set;
-import java.time.LocalDate;
+//import java.time.LocalDate;
 import java.io.File;
-import java.time.LocalDateTime;
+//import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import dao.ProdutoDAO;
@@ -74,7 +74,8 @@ public class ProdutoService {
 				productString += "\"preco\": " + produto.getPreco() + ",";
 				productString += "\"quantidade\": " + produto.getQuantidade() + ",";
 				productString += "\"descricao\": \"" + produto.getDescricao() + "\"";
-				productString += "\"imagem\": \"" + produto.getImagem() + "\"";
+				productString += "\"imagem\": \"" + produto.getImagem() + "\",";
+				productString += "\"category\": \"" + produto.getCategory() + "\"";
 				productString += "}";
 				break;
 			case INSERT_PRODUCT:
@@ -98,7 +99,8 @@ public class ProdutoService {
 				productString += "\"preco\": " + produto.getPreco() + ",";
 				productString += "\"quantidade\": " + produto.getQuantidade() + ",";
 				productString += "\"descricao\": \"" + produto.getDescricao() + "\"";
-				productString += "\"imagem\": \"" + produto.getImagem() + "\"";
+				productString += "\"imagem\": \"" + produto.getImagem() + "\",";
+				productString += "\"category\": \"" + produto.getCategory() + "\"";
 				productString += "}";
 				break;
 			case LIST_PRODUCT:
@@ -111,7 +113,8 @@ public class ProdutoService {
 					productString += "\"preco\": " + produto.getPreco() + ",";
 					productString += "\"quantidade\": " + produto.getQuantidade() + ",";
 					productString += "\"descricao\": \"" + produto.getDescricao() + "\",";
-					productString += "\"imagem\": \"" + produto.getImagem() + "\"";
+					productString += "\"imagem\": \"" + produto.getImagem() + "\",";
+					productString += "\"category\": \"" + produto.getCategory() + "\"";
 					productString += "},";
 				}
 				productString = productString.substring(0, productString.length() - 1);
@@ -160,6 +163,7 @@ public class ProdutoService {
     	String quantity = "";
     	String descricao = "";
     	String imagem = "";
+    	String category = "";
     	
     	System.out.println(body);
     	
@@ -193,14 +197,21 @@ public class ProdutoService {
     		imagem += cursor.charAt(k);
 			k++;
     	}
+    	k=0;
+    	cursor = body.split("\"category\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		category += cursor.charAt(k);
+			k++;
+    	}
     	
     	System.out.println(name);
     	System.out.println(price);
     	System.out.println(quantity);
     	System.out.println(descricao);
     	System.out.println(imagem);
+    	System.out.println(category);
     	
-    	Produto produto = new Produto(-1, name, Float.parseFloat(price), Integer.parseInt(quantity), descricao, imagem);
+    	Produto produto = new Produto(-1, name, Float.parseFloat(price), Integer.parseInt(quantity), descricao, imagem, category);
     	
     	if(produtoDAO.insert(produto) == true) {
     		response.status(201);
@@ -230,6 +241,7 @@ public class ProdutoService {
     	String quantity = "";
     	String descricao = "";
     	String imagem = "";
+    	String category = "";
     	
     	String cursor = body.split("\"nome\":\"")[1];
     	int k = 0;
@@ -261,8 +273,14 @@ public class ProdutoService {
     		imagem += cursor.charAt(k);
 			k++;
     	}
+    	k=0;
+    	cursor = body.split("\"category\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		category += cursor.charAt(k);
+			k++;
+    	}
     	
-    	Produto produto = new Produto(-1, name, Float.parseFloat(price), Integer.parseInt(quantity), descricao, imagem);
+    	Produto produto = new Produto(-1, name, Float.parseFloat(price), Integer.parseInt(quantity), descricao, imagem, category);
     	
     	if(produtoDAO.update(produto) == true) {
     		response.status(201);

@@ -1,5 +1,22 @@
 window.addEventListener("load", (event) => {
   loadDatabase();
+  if(localStorage.getItem("user") != null){
+    $("#btn_Entrar").html("Logout");
+    $("#btn_Entrar").on( "click", function() {
+      logout()
+    } );
+    $("#btn_Perfil").html("Meu Perfil");
+    $("#btn_Perfil").on( "click", function() {
+      location.href = "../profile_view/index.html"
+    } );
+  }else{
+    $("#btn_Entrar").on( "click", function() {
+      location.href = "../login/index.html"
+    } );
+    $("#btn_Perfil").on( "click", function() {
+      location.href = "../signup-user"
+    } );
+  }
 });
 
 async function send_information(product) {
@@ -53,7 +70,7 @@ async function loadDatabase() {
     }
 
     xhr.onerror = () => {
-        alert('erro ao criar produto ;-;');
+        alert('Sem produtos cadastrados dessa categoria');
     }
 
     xhr.send();

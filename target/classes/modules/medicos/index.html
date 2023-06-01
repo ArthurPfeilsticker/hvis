@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="../../assets/styles/product_search.css" />
     <title>HVis - Médicos</title>
   </head>
-  <body onload="ListaContatos()">
+  <body>
     <div class="page">
       <header>
         <div class="container header">
@@ -30,13 +30,7 @@
                 >
                   <div class="row justify-content-center">
                     <div class="col-12 col-sm-12 col-md-8 col-lg-12">
-                      <nav
-                        class="nav nav-pills flex-column flex-sm-row justify-content-center"
-                      >
-                        <!--<a
-                          class="flex-sm-fill text-sm-center nav-link active"
-                          href="../medicos/index.html"
-                          >Cuidadores</a>-->
+                      <nav class="nav nav-pills flex-column flex-sm-row justify-content-center">
                         <a
                           class="flex-sm-fill text-sm-center nav-link active"
                           href="../medicos/index.html"
@@ -49,12 +43,14 @@
                         >
                         <a
                           class="flex-sm-fill text-sm-center nav-link active"
-                          href="#login"
+                          href="#"
+                          id="btn_Entrar"
                           >Entrar</a
                         >
                         <a
                           class="flex-sm-fill text-sm-center nav-link active"
-                          href="../signup-user/index.html"
+                          href="#"
+                          id="btn_Perfil"
                           >Criar conta</a
                         >
                       </nav>
@@ -77,7 +73,7 @@
           <div class="row mini-spacer"></div>
           <div class="row justify-content-around">
             <div class="col-12 col-sm-12 col-md-4 col-lg-3 text-center">
-                <a class="card_type d-flex" type="button" onclick="loadDatabase('medico')">
+                <a class="card_type d-flex" type="button" onclick="loadDatabase('Médico')">
                   <div class="imgBx">
                     <img src="../../assets/images/medicos.jpg" />
                   </div>

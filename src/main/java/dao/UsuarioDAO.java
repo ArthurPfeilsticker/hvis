@@ -23,11 +23,11 @@ public class UsuarioDAO extends DAO{
 	public boolean insert(Usuario usuario) {
 		boolean status = false;
 		try {
-			String sql = "INSERT INTO usuario (nome, username, password, cpf, telefone, email, cidade, estado, descricao) "
+			String sql = "INSERT INTO usuario (nome, username, password, cpf, telefone, email, cidade, estado, descricao, role, sexo, idade) "
 				+ "VALUES ('" + usuario.getNome() + "', '"
 				+ usuario.getUsername() + "', '" + usuario.getPassword() + "', " + usuario.getCPF()
 				+ ", " + usuario.getTelefone() + ", '" + usuario.getEmail() + "', '" + usuario.getCidade()
-				+ "', '" + usuario.getEstado() + "', '" + usuario.getDescricao() + "');";
+				+ "', '" + usuario.getEstado() + "', '" + usuario.getDescricao() + "', '" + usuario.getRole() + "', '" + usuario.getSexo() + "', '" + usuario.getIdade() +  "');";
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();
 			st.close();
@@ -46,7 +46,7 @@ public class UsuarioDAO extends DAO{
 			String sql = "SELECT * FROM usuario WHERE id = "+id;
 			ResultSet rs = st.executeQuery(sql);
 			if(rs.next()) {
-				usuario = new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("username"), rs.getLong("cpf"), rs.getLong("telefone"), rs.getString("email"), rs.getString("descricao"), rs.getString("cidade"), rs.getString("estado"));
+				usuario = new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("username"), rs.getLong("cpf"), rs.getLong("telefone"), rs.getString("email"), rs.getString("descricao"), rs.getString("cidade"), rs.getString("estado"), rs.getString("role"), rs.getString("sexo").charAt(0), rs.getInt("idade"));
 ;			}
 			st.close();
 		}catch (Exception e){
@@ -65,7 +65,10 @@ public class UsuarioDAO extends DAO{
 				+ "email = " + usuario.getEmail() + ", "
 				+ "descricao = " + usuario.getDescricao() + ", "
 				+ "cidade = " + usuario.getCidade() + ", "
-				+ "estado = " + usuario.getEstado()
+				+ "estado = " + usuario.getEstado() + ", "
+				+ "role = " + usuario.getRole() + ", "
+				+ "sexo = " + usuario.getSexo() + ", "
+				+ "idade = " + usuario.getIdade() + ", "
 				+ " WHERE id = " + usuario.getId();
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();
@@ -100,7 +103,7 @@ public class UsuarioDAO extends DAO{
 			String sql = "SELECT * FROM usuario WHERE username = '" + username + "' AND password = '" + password + "';";
 			ResultSet rs = st.executeQuery(sql);
 			if(rs.next()) {
-				usuario = new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("username"), rs.getLong("cpf"), rs.getLong("telefone"), rs.getString("email"), rs.getString("descricao"), rs.getString("cidade"), rs.getString("estado"));
+				usuario = new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("username"), rs.getLong("cpf"), rs.getLong("telefone"), rs.getString("email"), rs.getString("descricao"), rs.getString("cidade"), rs.getString("estado"), rs.getString("role"), rs.getString("sexo").charAt(0), rs.getInt("idade"));
 ;			}
 			st.close();
 		}catch (Exception e){
@@ -117,7 +120,7 @@ public class UsuarioDAO extends DAO{
 			String sql = "SELECT * FROM usuario;";
 			ResultSet rs = st.executeQuery(sql);
 			while(rs.next()) {
-				users.add(new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("username"), rs.getLong("cpf"), rs.getLong("telefone"), rs.getString("email"), rs.getString("descricao"), rs.getString("cidade"), rs.getString("estado")));
+				users.add(new Usuario(rs.getInt("id"), rs.getString("nome"), rs.getString("username"), rs.getLong("cpf"), rs.getLong("telefone"), rs.getString("email"), rs.getString("descricao"), rs.getString("cidade"), rs.getString("estado"), rs.getString("role"), rs.getString("sexo").charAt(0), rs.getInt("idade")));
 ;			}
 			st.close();
 		}catch (Exception e){

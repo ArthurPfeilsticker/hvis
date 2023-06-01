@@ -145,7 +145,7 @@ async function loadDatabase() {
     }
 
     xhr.onerror = () => {
-        alert('erro ao criar produto ;-;');
+        alert('Sem produtos cadastrados dessa categoria');
     }
 
     xhr.send();

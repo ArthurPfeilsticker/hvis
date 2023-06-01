@@ -111,7 +111,10 @@ public class UsuarioService {
 				userString += "\"telefone\": " + usuario.getTelefone() + ",";
 				userString += "\"descricao\": \"" + usuario.getDescricao() + "\",";
 				userString += "\"cidade\": \"" + usuario.getCidade() + "\",";
-				userString += "\"estado\": \"" + usuario.getEstado() + "\"";
+				userString += "\"estado\": \"" + usuario.getEstado() + "\",";
+				userString += "\"role\": \"" + usuario.getRole() + "\",";
+				userString += "\"sexo\": \"" + usuario.getSexo() + "\",";
+				userString += "\"idade\": \"" + usuario.getIdade() + "\"";
 				userString += "}";
 				break;
 			case INSERT_USER:
@@ -138,7 +141,10 @@ public class UsuarioService {
 				userString += "\"telefone\": " + usuario.getTelefone() + ",";
 				userString += "\"descricao\": \"" + usuario.getDescricao() + "\",";
 				userString += "\"cidade\": \"" + usuario.getCidade() + "\",";
-				userString += "\"estado\": \"" + usuario.getEstado() + "\"";
+				userString += "\"estado\": \"" + usuario.getEstado() + "\",";
+				userString += "\"role\": \"" + usuario.getRole() + "\",";
+				userString += "\"sexo\": \"" + usuario.getSexo() + "\",";
+				userString += "\"idade\": \"" + usuario.getIdade() + "\"";
 				userString += "}";
 				break;
 			case LIST_USER:
@@ -154,7 +160,10 @@ public class UsuarioService {
 					userString += "\"telefone\": " + usuario.getTelefone() + ",";
 					userString += "\"descricao\": \"" + usuario.getDescricao() + "\",";
 					userString += "\"cidade\": \"" + usuario.getCidade() + "\",";
-					userString += "\"estado\": \"" + usuario.getEstado() + "\"";
+					userString += "\"estado\": \"" + usuario.getEstado() + "\",";
+					userString += "\"role\": \"" + usuario.getRole() + "\",";
+					userString += "\"sexo\": \"" + usuario.getSexo() + "\",";
+					userString += "\"idade\": \"" + usuario.getIdade() + "\"";
 					userString += "},";
 				}
 				userString = userString.substring(0, userString.length() - 1);
@@ -207,6 +216,9 @@ public class UsuarioService {
     	String descricao = "";
     	String cidade = "";
     	String estado = "";
+    	String role = "";
+    	String sexo = "";
+    	String idade = "";
     	
     	
     	String cursor = body.split("\"nome\":\"")[1];
@@ -263,10 +275,28 @@ public class UsuarioService {
     		estado += cursor.charAt(k);
 			k++;
     	}
+    	k=0;
+    	cursor = body.split("\"role\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		role += cursor.charAt(k);
+			k++;
+    	}
+    	k=0;
+    	cursor = body.split("\"sexo\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		sexo += cursor.charAt(k);
+			k++;
+    	}
+    	k=0;
+    	cursor = body.split("\"idade\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		idade += cursor.charAt(k);
+			k++;
+    	}
     	
     	password = getMd5(password);
     	
-    	Usuario usuario = new Usuario(-1, name, username, password, Long.parseLong(cpf), Long.parseLong(telefone), email, descricao, cidade, estado);
+    	Usuario usuario = new Usuario(-1, name, username, password, Long.parseLong(cpf), Long.parseLong(telefone), email, descricao, cidade, estado, role, sexo.charAt(0), Integer.parseInt(idade));
     	
     	if(usuarioDAO.insert(usuario) == true) {
     		response.status(201);
@@ -299,6 +329,9 @@ public class UsuarioService {
     	String descricao = "";
     	String cidade = "";
     	String estado = "";
+    	String role = "";
+    	String sexo = "";
+    	String idade = "";
     	
     	String cursor = body.split("\"nome\":\"")[1];
     	int k = 0;
@@ -348,8 +381,26 @@ public class UsuarioService {
     		estado += cursor.charAt(k);
 			k++;
     	}
+    	k=0;
+    	cursor = body.split("\"role\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		role += cursor.charAt(k);
+			k++;
+    	}
+    	k=0;
+    	cursor = body.split("\"sexo\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		sexo += cursor.charAt(k);
+			k++;
+    	}
+    	k=0;
+    	cursor = body.split("\"idade\":\"")[1];
+    	while(cursor.charAt(k) != '\"') {
+    		idade += cursor.charAt(k);
+			k++;
+    	}
     	
-    	Usuario usuario = new Usuario(-1, name, username, Long.parseLong(cpf), Integer.parseInt(telefone), email, descricao, cidade, estado);
+    	Usuario usuario = new Usuario(-1, name, username, Long.parseLong(cpf), Integer.parseInt(telefone), email, descricao, cidade, estado, role, sexo.charAt(0), Integer.parseInt(idade));
     	
     	if(usuarioDAO.update(usuario) == true) {
     		response.status(201);
@@ -368,6 +419,7 @@ public class UsuarioService {
     public Object login(Request request, Response response) {
     	
     	String body = request.body();
+    	System.out.println(body);
     	String username = "";
     	String password = "";
     	String cursor = body.split("\"username\":\"")[1];

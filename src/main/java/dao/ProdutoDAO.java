@@ -27,7 +27,7 @@ public class ProdutoDAO extends DAO {
 		try {
 			String sql = "INSERT INTO produto (descricao, preco, quantidade, nome, imagem) "
 		               + "VALUES ('" + produto.getDescricao() + "', "
-		               + produto.getPreco() + ", " + produto.getQuantidade() + ", '" + produto.getNome() + "', '" + produto.getImagem() + "');";
+		               + produto.getPreco() + ", " + produto.getQuantidade() + ", '" + produto.getNome() + "', '" + produto.getImagem() + "', '" + produto.getCategory() + "');";
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();
 			st.close();
@@ -48,7 +48,7 @@ public class ProdutoDAO extends DAO {
 			ResultSet rs = st.executeQuery(sql);	
 	        if(rs.next()){            
 	        	 produto = new Produto(rs.getInt("id"), rs.getString("nome"), (float)rs.getDouble("preco"), 
-	                				   rs.getInt("quantidade"),rs.getString("descricao"),rs.getString("imagem"));
+	                				   rs.getInt("quantidade"),rs.getString("descricao"),rs.getString("imagem"), rs.getString("category"));
 	        }
 	        st.close();
 		} catch (Exception e) {
@@ -87,7 +87,7 @@ public class ProdutoDAO extends DAO {
 			ResultSet rs = st.executeQuery(sql);	           
 	        while(rs.next()) {	            	
 	        	Produto p = new Produto(rs.getInt("id"), rs.getString("nome"), (float)rs.getDouble("preco"), 
-				rs.getInt("quantidade"),rs.getString("descricao"),rs.getString("imagem"));
+				rs.getInt("quantidade"),rs.getString("descricao"),rs.getString("imagem"), rs.getString("category"));
 	            produtos.add(p);
 	        }
 	        st.close();
@@ -105,7 +105,8 @@ public class ProdutoDAO extends DAO {
 					+ "preco = " + produto.getPreco() + ", " 
 					+ "quantidade = " + produto.getQuantidade() + ", "
 					+ "nome = '" + produto.getNome() + "', "
-					+ "imagem = '" + produto.getImagem() + "', " 
+					+ "imagem = '" + produto.getImagem() + "', "
+					+ "category = '" + produto.getCategory() + "', " 
 					+ "WHERE id = " + produto.getId();
 			PreparedStatement st = conexao.prepareStatement(sql);
 			st.executeUpdate();

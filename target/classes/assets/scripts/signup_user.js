@@ -10,8 +10,9 @@ const back_box = document.querySelector('.back-box'),
       user_tel = document.querySelector('#campoTelefone'),
       user_desc = document.querySelector('#campoDescricao'),
       form_element = document.querySelector('#formCadastros'),
-      show_passwd = document.querySelector('#show-passwd'),
-      hide_passwd = document.querySelector('#hide-passwd');
+      user_role = document.querySelector('#campoRole');
+      user_sexo = document.querySelector('#campoSexo');
+      user_idade = document.querySelector('#campoIdade');
 
 let btn_submit = document.querySelector('.btn-submit');
 let valid_passwd = true;
@@ -38,20 +39,6 @@ user_confirmpasswd.addEventListener('blur', () => {
     }
 });
 
-show_passwd.addEventListener('click', e => {
-    user_confirmpasswd.setAttribute('type', 'text');
-    show_passwd.style.display = 'none';
-    hide_passwd.style.display = 'block';
-    e.preventDefault();
-});
-
-hide_passwd.addEventListener('click', e => {
-    user_confirmpasswd.setAttribute('type', 'password');
-    show_passwd.style.display = 'block';
-    hide_passwd.style.display = 'none';
-    e.preventDefault();
-});
-
 form_element.addEventListener('submit', e => {
     e.preventDefault();
 });
@@ -69,7 +56,10 @@ btn_submit.onclick = () => {
             email: user_email.value.trim(),
             cidade: user_city.value.trim(),
             estado: user_estate.value.trim(),
-            descricao: user_desc.value.trim()
+            descricao: user_desc.value.trim(),
+            role: user_role.value.trim(),
+            sexo: user_sexo.value.trim(),
+            idade: user_idade.value.trim(),
         }
         postUser(user);
     }

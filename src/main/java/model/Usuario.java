@@ -12,8 +12,11 @@ public class Usuario {
 	private String cidade;
 	private String estado;
 	private String descricao;
+	private String role;
+	private char sexo;
+	private int idade;
 	
-	public Usuario(int id, String nome, String username, String password, long cpf, long telefone, String email, String descricao, String cidade, String estado) {
+	public Usuario(int id, String nome, String username, String password, long cpf, long telefone, String email, String descricao, String cidade, String estado, String role, char sexo, int idade) {
 		this.id = id;
 		this.nome = nome;
 		this.username = username;
@@ -24,9 +27,12 @@ public class Usuario {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.descricao = descricao;
+		this.role = role;
+		this.sexo = sexo;
+		this.idade = idade;
 	}
 	
-	public Usuario(int id, String nome, String username, long cpf, long telefone, String email, String descricao, String cidade, String estado) {
+	public Usuario(int id, String nome, String username, long cpf, long telefone, String email, String descricao, String cidade, String estado, String role, char sexo, int idade) {
 		this.id = id;
 		this.nome = nome;
 		this.username = username;
@@ -36,6 +42,9 @@ public class Usuario {
 		this.cidade = cidade;
 		this.estado = estado;
 		this.descricao = descricao;
+		this.role = role;
+		this.sexo = sexo;
+		this.idade = idade;
 	}
 	
 	public Usuario() {
@@ -49,6 +58,9 @@ public class Usuario {
 		this.cidade = null;
 		this.estado = null;
 		this.descricao = null;
+		this.role = null;
+		this.sexo = 'o';
+		this.idade = 0;
 	}
 	
 	public int getId() {
@@ -88,5 +100,14 @@ public class Usuario {
 	}
 	public String getEstado() {
 		return this.estado;
+	}
+	public String getRole() {
+		return this.role;
+	}
+	public int getIdade() {
+		return this.idade;
+	}
+	public char getSexo() {
+		return this.sexo;
 	}
 }
