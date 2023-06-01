@@ -51,6 +51,8 @@ public class Aplicacao {
         
         get("/usuario", (request, response) -> usuarioService.list(request, response));
         
+        post("/produto-recomendado", (request, response) -> produtoService.SI_Service(request, response));
+        
         post("/usuario", (request, response) -> usuarioService.insert(request, response));
         
         get("/usuario/:id", (request, response) -> usuarioService.get(request, response));

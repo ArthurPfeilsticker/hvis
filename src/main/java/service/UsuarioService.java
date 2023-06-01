@@ -100,7 +100,6 @@ public class UsuarioService {
 			Usuario usuario = usuarios.get(0);
 			switch(tipo) {
 			case GET_USER:
-				System.out.println("teste");
 				msg = "Usuario de id " + usuario.getId() + " encontrado.";
 				userString += "{";
 				userString += "\"id\": " + usuario.getId() + ",";
@@ -419,7 +418,6 @@ public class UsuarioService {
     public Object login(Request request, Response response) {
     	
     	String body = request.body();
-    	System.out.println(body);
     	String username = "";
     	String password = "";
     	String cursor = body.split("\"username\":\"")[1];

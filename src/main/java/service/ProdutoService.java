@@ -23,6 +23,7 @@ public class ProdutoService {
 	private final int LIST_PRODUCT = 6;
 	private final int ERROR_404 = 7;
 	private final int ERROR_401 = 8;
+	private final int ENDPOINT_SI = 9;
 	
 	private boolean authMiddleware(Request request) {
 		Set<String> headers = request.headers();
@@ -339,5 +340,41 @@ public class ProdutoService {
     	}
     	
     	return json;
+    }
+    
+    public Object SI_Service(Request request, Response response) {
+    	response.status(200);
+    	
+    	if(!authMiddleware(request)) {
+    		response.status(401);
+    		response.type("application/json");
+    		return json;
+    	}
+    	
+    	String body = request.body();
+    	String cidade = "";
+    	String sexo = "";
+    	String idade = "";
+    	
+    	String cursor = body.split("\"cidade\":\"")[1];
+    	int k = 0;
+    	while(cursor.charAt(k) != '\"') {
+    		cidade += cursor.charAt(k);
+			k++;
+    	}
+    	cursor = body.split("\"idade\":")[1];
+    	k = 0;
+    	while(cursor.charAt(k) != ',') {
+    		idade += cursor.charAt(k);
+			k++;
+    	}
+    	cursor = body.split("\"sexo\":\"")[1];
+    	k = 0;
+    	while(cursor.charAt(k) != '\"') {
+    		sexo += cursor.charAt(k);
+			k++;
+    	}
+    	String resposta = produtoDAO.endpointSI(cidade, Integer.parseInt(idade), sexo);
+    	return "{\"resultado\": \"" + resposta + "\"}";
     }
 }
